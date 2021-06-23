@@ -1,36 +1,56 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-#logo, 
-#hotel-name {
-  display: inline-block;
-  margin: 10px;
-  font-family: 'Bangers', cursive;
-}
-
-#booking {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-#booking > div {
-  display: inline-block;
-  width: 12%;
-  margin: 0;
-  padding: 1em 0 1em 2em;
-  background-color: #333;  
-  color: #fff;  
-  min-width: 100px;
-}
-
-
-#booking > div > i {
-  padding-left: 15px;
-}
-
-
-
-/* #date-picker { */
-/*   display: none; */
+/* html{ */
+/*   width:100vw;  */
+/*   height: 100vh; */
 /* } */
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0 0 0 10px;
+}
+
+.calendar {
+  display:block; 
+  overflow: visible;
+/*   width:100vw;  */
+/*   height: 90vh; */
+}
+/* #logo,  */
+/* #hotel-name { */
+/*   display: inline-block; */
+/*   margin: 10px; */
+/*   font-family: 'Bangers', cursive; */
+/* } */
+
+/* #booking { */
+/*   width: 100%; */
+/*   height: auto; */
+/*   margin-bottom: 10px; */
+/* } */
+
+/* #booking > div { */
+/*   display: inline-block; */
+/*   width: 12%; */
+/*   margin: 0; */
+/*   padding: 1em 0 1em 2em; */
+/*   background-color: #333;   */
+/*   color: #fff;   */
+/*   min-width: 100px; */
+/* } */
+
+
+/* #booking > div > i { */
+/*   padding-left: 15px; */
+/* } */
+
+
+
+/* .date-picker-container { */
+/*   display: flex; */
+/* } */
+.date-picker {
+  margin: 10px;
+}
