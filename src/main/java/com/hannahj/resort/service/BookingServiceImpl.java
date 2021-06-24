@@ -17,8 +17,7 @@ public class BookingServiceImpl implements BookingService {
 	
 	@Override
 	public void book(Booking booking) {
-		// TODO Auto-generated method stub
-		
+		bookDao.book(booking);
 	}
 
 	@Override
@@ -106,8 +105,23 @@ public class BookingServiceImpl implements BookingService {
 			}
 			bookStatus.put(date, bookers);
 		}
-		
 		return bookStatus;
+	}
+	
+	
+//	@SuppressWarnings("deprecation")
+	public int getNights(Date startDate, Date endDate) {
+		Calendar endCal = Calendar.getInstance();
+		endCal.setTime(endDate);
+		Calendar startCal = Calendar.getInstance();
+		startCal.setTime(startDate);
+//		Calendar startCal = new GregorianCalendar(
+//				startDate.getYear(), startDate.getMonth(), startDate.getDate());//  
+		 
+		long diffSec = (endCal.getTimeInMillis() - startCal.getTimeInMillis());
+		int diffDays = (int) (diffSec / (24*60*60*1000));
+		 
+		return diffDays;
 	}
 
 }

@@ -10,7 +10,7 @@
 <html>
   <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Booking Status</title>
 <!--   <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'> -->
   <link href="main.css" rel="stylesheet" type="text/css">
   
@@ -42,6 +42,7 @@
     request.setAttribute("checkout", checkout); 
     %>
     <table id="bookStatus">
+      <caption><b>예약 현황</b></caption>
       <tr>
         <th>Date</th>
         <c:forEach var="room" items="${rooms}">
@@ -49,7 +50,7 @@
         </c:forEach>
       </tr>
       <c:forEach var="date" items="${status}">
-      
+<%--       <c:set var=checkin value=<fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd(E)"/>/> --%>
       <tr>
         <td><fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd(E)"/></td>
         <c:forEach var="name" items="${date.value}" varStatus="room"> 
@@ -58,7 +59,7 @@
             <td>${name}</td>
             </c:when>
             <c:otherwise>
-            <td><a href="booking.jsp?checkin='${date.key}'&room='${room.count}'">예약가능</a></td>
+            <td><a target="main" href="preview.jsp?checkin=<fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd"/>&checkout=<fmt:formatDate value="${checkout}" pattern="yyyy-MM-dd"/>&room=${room.count}">예약가능</a></td>
             </c:otherwise>
             
           </c:choose>
@@ -69,7 +70,7 @@
     </table>
     <script>
 	    document.body.scrollIntoView(true);
-   		parent.document.all.calendar.height = document.body.scrollHeight;
+   		parent.document.all.calendar.height = document.body.scrollHeight+document.body.style.marginBottom;
     </script>
   </body>
 </html>

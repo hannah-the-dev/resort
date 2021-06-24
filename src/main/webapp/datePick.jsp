@@ -27,24 +27,26 @@
     request.setAttribute("rooms", rooms); 
 //     request.setAttribute("dates", dates); 
     %>
-    <form target="main" >
-    <div class="date-picker-container" style="
-    display: flex;">
-      <div class="date-picker">
-        <label for="in_date">Check-in Date</label><br>
-        <input type="date" name="checkin" id="in_date" placeholder="yyyy-mm-dd" required>
+    <div id="page-scope-container">
+      <form target="main" >
+      <div class="date-picker-container" style="
+      display: flex; align-items: center">
+        <div class="date-picker">
+          <label for="in_date">Check-in Date</label><br>
+          <input type="date" name="checkin" id="in_date" placeholder="yyyy-mm-dd" required>
+        </div>
+        <div class="date-picker">
+          <label for="out_date">Check-out Date</label><br>
+          <input type="date" name="checkout" id="out_date" placeholder="yyyy-mm-dd" required>
+        </div>
+        <button formaction="calendar.jsp">조회</button>
       </div>
-      <div class="date-picker">
-        <label for="out_date">Check-Out Date</label><br>
-        <input type="date" name="checkout" id="out_date" placeholder="yyyy-mm-dd" required>
-      </div>
-      <input type="submit" formaction="calendar.jsp">
+        </form>
+      <iframe id = calendar name="main" frameborder="0" 
+        width="100%" >
+  <!-- calendar here -->
+      </iframe>
     </div>
-      </form>
-    <iframe id = calendar name="main" frameborder="0" 
-      width="100%" height="100%">
-<!-- calendar here -->
-    </iframe>
     <script>
 	    let [today] = new Date().toISOString().split("T");
     	document.querySelector("#in_date").setAttribute("min", today);
@@ -54,5 +56,6 @@
     	};
 
     </script>
+    
   </body>
 </html>

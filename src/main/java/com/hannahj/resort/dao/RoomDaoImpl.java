@@ -88,7 +88,7 @@ public class RoomDaoImpl implements RoomDao{
 			
 			while (rset.next()) {
 				Room room = new Room(
-				rset.getInt(BookingColumns.ROOM_ID.order),
+				rset.getInt(1),
 				rset.getString(2),
 				rset.getLong(3)
 				);

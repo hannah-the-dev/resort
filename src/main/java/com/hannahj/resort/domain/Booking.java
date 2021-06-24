@@ -14,7 +14,7 @@ public class Booking {
 	private String phone;	//editable
 	private boolean paid;	//editable
 	private String msg;		//editable
-	private int idx; 	
+	private Integer idx; 	
 	public Date getInDate() {
 		return inDate;
 	}
@@ -82,10 +82,10 @@ public class Booking {
 		this.msg = msg;
 	}
 	
-	public int getIdx() {
+	public Integer getIdx() {
 		return idx;
 	}
-	public void setIdx(int idx) {
+	public void setIdx(Integer idx) {
 		this.idx = idx;
 	}
 	
@@ -93,7 +93,7 @@ public class Booking {
 	 * this constructor is for non-member only
 	 */
 	public Booking(Date inDate, Date outDate, int roomId, Long price, String userName,
-			String email, String phone, boolean paid, String msg, int idx) {
+			String email, String phone, boolean paid, String msg, Integer idx) {
 		super();
 		this.inDate = inDate;
 		this.outDate = outDate;
@@ -112,14 +112,14 @@ public class Booking {
 	 * this constructor is for member only
 	 */
 	public Booking(Date inDate, Date outDate, int roomId, Long price, String userId, String userName,
-			String email, String phone, boolean paid, String msg, int idx) {
+			String email, String phone, boolean paid, String msg, Integer idx) {
 		this(inDate, outDate, roomId, price, userName, email, phone, paid, msg, idx);
 		this.member = true;
 		this.userId = userId;
 	}
 
-public Booking(Date inDate, Date outDate, int roomId, Long price, boolean member, String userId, String userName,
-			String email, String phone, boolean paid, String msg, int idx) {
+	public Booking(Date inDate, Date outDate, int roomId, Long price, boolean member, String userId, String userName,
+			String email, String phone, boolean paid, String msg, Integer idx) {
 		this(inDate, outDate, roomId, price, userId, userName, email, phone, paid, msg, idx);
 		this.member = member;
 	}
