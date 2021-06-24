@@ -41,7 +41,7 @@
       <input type="submit" formaction="calendar.jsp">
     </div>
       </form>
-    <iframe name="main" frameborder="0" 
+    <iframe id = calendar name="main" frameborder="0" 
       width="100%" height="100%">
 <!-- calendar here -->
     </iframe>

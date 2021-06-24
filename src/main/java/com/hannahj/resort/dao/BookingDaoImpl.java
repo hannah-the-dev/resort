@@ -83,8 +83,8 @@ public class BookingDaoImpl implements BookingDao{
 		List<Booking> bookings = new ArrayList<Booking>();
 		try (Connection conn = ConnectionPool.getConnection()) {
 			query = String.format("select * from booking "
-					+ "where in_date between %s and %s "
-					+ "or out_date between %s and %s;",
+					+ "where in_date between '%s' and '%s' "
+					+ "or out_date between '%s' and '%s';",
 					startDate, endDate, startDate, endDate);	
 			Statement stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);

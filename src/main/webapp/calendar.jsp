@@ -41,7 +41,7 @@
     request.setAttribute("checkin", checkin); 
     request.setAttribute("checkout", checkout); 
     %>
-    <table>
+    <table id="bookStatus">
       <tr>
         <th>Date</th>
         <c:forEach var="room" items="${rooms}">
@@ -52,13 +52,13 @@
       
       <tr>
         <td><fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd(E)"/></td>
-        <c:forEach var="name" items="${date.value}"> 
+        <c:forEach var="name" items="${date.value}" varStatus="room"> 
           <c:choose>
-            <c:when test="${empty name}">
+            <c:when test="${!empty name}">
             <td>${name}</td>
             </c:when>
             <c:otherwise>
-            <td>예약가능</td>
+            <td><a href="booking.jsp?checkin='${date.key}'&room='${room.count}'">예약가능</a></td>
             </c:otherwise>
             
           </c:choose>
@@ -67,6 +67,9 @@
       </c:forEach>
       
     </table>
-    
+    <script>
+	    document.body.scrollIntoView(true);
+   		parent.document.all.calendar.height = document.body.scrollHeight;
+    </script>
   </body>
 </html>

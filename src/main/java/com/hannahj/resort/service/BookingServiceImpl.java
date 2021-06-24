@@ -93,15 +93,15 @@ public class BookingServiceImpl implements BookingService {
 		List<Date> dateList = getDateList(startDate, endDate);
 		Map<Date, String[]> bookStatus = new LinkedHashMap<Date, String[]>();
 		List<Booking> bookings = selectAll(startDate, endDate);
-		String[] bookers = new String[Room.NO_OF_ROOMS];
+		
 		for (Date date : dateList) {
+			String[] bookers = new String[Room.NO_OF_ROOMS];
 			for (Booking booking : bookings) {
-				if (booking.getInDate().before(date)
-						|| booking.getInDate().equals(date)
-						|| booking.getInDate().after(date)) {
-					bookers[booking.getRoomId()] = booking.getUserName();
-				} else {
-					bookers[booking.getRoomId()] = null;
+				if ((booking.getInDate().before(date)
+					|| booking.getInDate().equals(date))
+						&& (booking.getOutDate().after(date))
+						) {
+					bookers[booking.getRoomId()-1] = booking.getUserName();
 				}
 			}
 			bookStatus.put(date, bookers);

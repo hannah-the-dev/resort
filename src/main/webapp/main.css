@@ -1,22 +1,26 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@import
+  url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+@import
+  url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
+  ;
 
 /* html{ */
 /*   width:100vw;  */
 /*   height: 100vh; */
 /* } */
-
 body {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0 0 0 10px;
 }
 
 .calendar {
-  display:block; 
+  display: block;
   overflow: visible;
-/*   width:100vw;  */
-/*   height: 90vh; */
+  /*   width:100vw;  */
+  /*   height: 90vh; */
 }
 /* #logo,  */
 /* #hotel-name { */
@@ -41,12 +45,9 @@ body {
 /*   min-width: 100px; */
 /* } */
 
-
 /* #booking > div > i { */
 /*   padding-left: 15px; */
 /* } */
-
-
 
 /* .date-picker-container { */
 /*   display: flex; */
@@ -54,3 +55,14 @@ body {
 .date-picker {
   margin: 10px;
 }
+
+tr, td, th {
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+}
+
+table {
+  border-collapse: collapse;
+/*   margin: 10px auto; */
+}
+
