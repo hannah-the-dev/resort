@@ -23,7 +23,7 @@ public class BookingDaoImpl implements BookingDao{
 	public void book(Booking booking) {
 		try (Connection conn = ConnectionPool.getConnection()) {
 			query = "insert into booking values ("
-					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, null, ?);";
+					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null);";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setDate(BookingColumns.IN_DATE.order, booking.getInDate());
 			stmt.setDate(BookingColumns.OUT_DATE.order, booking.getOutDate());

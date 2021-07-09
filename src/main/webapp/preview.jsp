@@ -38,15 +38,11 @@
         out.print("<h1> 날짜가 선택되지 않았습니다. </h1>");
         return; 
     }
-    
-    
-//     List<Booking> bookings = service.selectMonth(checkin);
     List<Room> rooms = service.roomInfo();
     Room room = rooms.get(roomId-1);
     Map<Date, String[]> status = service.getStatus(checkin, checkout);
     
     int nights = service.getNights(checkin, checkout);
-//     request.setAttribute("bookings", bookings); 
     request.setAttribute("rooms", rooms); 
     request.setAttribute("selected", room);
     request.setAttribute("status", status); 
@@ -67,9 +63,11 @@
         <dt>Room</dt> 
         <dd>${selected.roomName}<input type="hidden" name='room' value='${selected.roomId}' readonly></dd>
         <dt>Price/night(USD)*<dt>
-        <dd>$ <input type="text" name='ppn' value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice}" />' readonly></dd>
+        <dd>$ <input type="text" name='ppn' 
+        value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice}" />' readonly></dd>
         <dt>Total Price(USD)*</dt> 
-        <dd>$ <input type="text" name='amount' value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice * nights}" />' readonly></dd>
+        <dd>$ <input type="text" name='amount' value='<fmt:formatNumber type="number" maxFractionDigits="3" 
+        value="${selected.defPrice * nights}" />' readonly></dd>
         <dd style="font-size: 0.6em">* Prices do not include taxes & fees</dd>
       </dl>
       <div id="buttons">
@@ -96,7 +94,11 @@
             <td>${name}</td>
             </c:when>
             <c:otherwise>
-            <td><a target="main" href="preview.jsp?checkin=<fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd"/>&checkout=<fmt:formatDate value="${checkout}" pattern="yyyy-MM-dd"/>&room=${room.count}">예약가능</a></td>
+              <td><a target="main" 
+              href="preview.jsp?checkin=<fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd"/>
+              &checkout=<fmt:formatDate value="${checkout}" pattern="yyyy-MM-dd"/>&room=${room.count}">
+              예약가능</a>
+              </td>
             </c:otherwise>
             
           </c:choose>

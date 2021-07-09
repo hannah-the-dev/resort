@@ -19,13 +19,9 @@
     <% 
     BookingServiceImpl service = new BookingServiceImpl();
     
-//     String dates[] = service.addAMonthToString(startDate);
-//     List<Booking> bookings = service.selectMonth(startDate);
     List<Room> rooms = service.roomInfo();
     
-//     request.setAttribute("bookings", bookings); 
     request.setAttribute("rooms", rooms); 
-//     request.setAttribute("dates", dates); 
     %>
     <div id="page-scope-container">
       <form target="main" >

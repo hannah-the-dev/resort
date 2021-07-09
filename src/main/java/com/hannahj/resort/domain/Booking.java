@@ -94,7 +94,6 @@ public class Booking {
 	 */
 	public Booking(Date inDate, Date outDate, int roomId, Long price, String userName,
 			String email, String phone, boolean paid, String msg, Integer idx) {
-		super();
 		this.inDate = inDate;
 		this.outDate = outDate;
 		this.roomId = roomId;
@@ -124,5 +123,7 @@ public class Booking {
 		this.member = member;
 	}
 	
+	public Booking() {
+	}
 	
 }

@@ -19,8 +19,12 @@
     request.setCharacterEncoding("UTF-8");
     BookingServiceImpl service = new BookingServiceImpl(); 
     
-    Date checkin = service.toDate(request.getParameter("checkin"));
-    Date checkout = service.toDate(request.getParameter("checkout"));
+    java.util.Date utilIn = service.toDate(request.getParameter("checkin"));
+    Date utilOut = service.toDate(request.getParameter("checkout"));
+    
+    java.sql.Date checkin = new java.sql.Date(utilIn.getTime());
+    java.sql.Date checkout = new java.sql.Date(utilOut.getTime());
+    
     
     Integer roomId = null;
     Long amount = null;
@@ -45,6 +49,7 @@
         }
     } catch (Exception e) {
         out.print("<h1> 오류가 발생했습니다. </h1>");
+        e.printStackTrace();
         return; 
     } 
     
@@ -52,8 +57,9 @@
         out.print("<legend> 일정 정보가 변경되었습니다. 다시 시도해주세요. </legend>");
         return; 
     }
-    
-    Booking booking = new Booking(checkin, checkout, (int)roomId, amount, member, id, name, email, phone, paid, msg, bookId);
+    int room = (int) roomId;
+//     Booking booking = new Booking(checkin, checkout, (int)roomId, amount, member, id, name, email, phone, paid, msg, bookId);
+    Booking booking = new Booking(checkin, checkout, room, amount, member, id, name, email, phone, paid, msg, bookId);
     service.book(booking);    
     %>
   </body>

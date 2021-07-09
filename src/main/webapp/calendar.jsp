@@ -28,11 +28,9 @@
         return; 
     }
     
-    
     String dates[] = service.addAMonthToString(checkin);
     List<Booking> bookings = service.selectMonth(checkout);
     List<Room> rooms = service.roomInfo();
-//     List<Date> dateList = service.getDateList(checkin, checkout);
     Map<Date, String[]> status = service.getStatus(checkin, checkout);
     
     request.setAttribute("bookings", bookings); 
@@ -59,7 +57,10 @@
             <td>${name}</td>
             </c:when>
             <c:otherwise>
-            <td><a target="main" href="preview.jsp?checkin=<fmt:formatDate value="${date.key}" pattern="yyyy-MM-dd"/>&checkout=<fmt:formatDate value="${checkout}" pattern="yyyy-MM-dd"/>&room=${room.count}">예약가능</a></td>
+              <td><a target="main" href="preview.jsp?checkin=<fmt:formatDate value="${date.key}" 
+              pattern="yyyy-MM-dd"/>&checkout=<fmt:formatDate value="${checkout}" pattern="yyyy-MM-dd"/>&room=${room.count}">
+              예약가능</a>
+              </td>
             </c:otherwise>
             
           </c:choose>

@@ -12,7 +12,7 @@ public enum ConnectionPool {
     private static BasicDataSource DS = new BasicDataSource();
     
     static {
-    	DS.setUrl("jdbc:mysql://192.168.23.17:3306/resort");
+    	DS.setUrl("jdbc:mysql://192.168.23.91:3306/resort");
     	DS.setDriverClassName("com.mysql.cj.jdbc.Driver");
         DS.setUsername("root");
         DS.setPassword("kopoctc");

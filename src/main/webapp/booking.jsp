@@ -86,11 +86,13 @@
           </div>
           <div>
             <label for='ppn'>Price/night(USD)*: </label>
-            $ <input type="text" name='ppn' value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice}" />' readonly>
+            $ <input type="text" value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice}" />' readonly>
+             <input type="hidden" name='ppn' value="${selected.defPrice}" readonly>
           </div>
           <div>
             <label for='amount'>Total Price(USD)*: </label> 
-            $ <input type="text" name='amount' value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice * nights}" />' readonly>
+            $ <input type="text" value='<fmt:formatNumber type="number" maxFractionDigits="3" value="${selected.defPrice * nights}" />' readonly>
+             <input type="hidden" name='amount' value="${selected.defPrice * nights}" readonly>
             <div style="font-size: 0.6em">* Taxes & fees will be applied at the site of payment.</div>
         </div>
       </fieldset>
